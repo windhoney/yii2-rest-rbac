@@ -35,23 +35,23 @@ class DbManager extends \yii\rbac\DbManager
      * with a DB connection object.
      * Starting from version 2.0.2, this can also be a configuration array for creating the object.
      */
-    public $db = 'lx_db';
+    public $db = 'db';
     /**
      * @var string the name of the table storing authorization items. Defaults to "auth_item".
      */
-    public $itemTable = 'lx.auth_item';
+    public $itemTable = 'auth_item';
     /**
      * @var string the name of the table storing authorization item hierarchy. Defaults to "auth_item_child".
      */
-    public $itemChildTable = 'lx.auth_item_child';
+    public $itemChildTable = 'auth_item_child';
     /**
      * @var string the name of the table storing authorization item assignments. Defaults to "auth_assignment".
      */
-    public $assignmentTable = 'lx.auth_assignment';
+    public $assignmentTable = 'auth_assignment';
     /**
      * @var string the name of the table storing rules. Defaults to "auth_rule".
      */
-    public $ruleTable = 'lx.auth_rule';
+    public $ruleTable = 'auth_rule';
     
     /**
      * @var Connection|array|string the DB connection object or the application component ID of the DB connection.

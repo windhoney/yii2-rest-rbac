@@ -1,7 +1,6 @@
 <?php
 namespace wind\rest\controllers;
 
-use rbac\models\Menu;
 use yii\web\Controller;
 
 /**
@@ -11,7 +10,7 @@ class SiteController extends Controller
 {
     
     /**
-     * Displays homepage.
+     * test
      *
      * @return string
      */

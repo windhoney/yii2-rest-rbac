@@ -3,7 +3,7 @@
 namespace wind\rest\models;
 
 use yii\helpers\ArrayHelper;
-use \helper\MyHelper;
+use wind\rest\helper;
 use Yii;
 use yii\rbac\Item;
 use yii\helpers\Json;

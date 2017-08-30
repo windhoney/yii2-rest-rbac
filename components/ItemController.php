@@ -3,7 +3,7 @@
 namespace wind\rest\components;
 
 use yii\helpers\ArrayHelper;
-use \helper\MyHelper;
+use wind\rest\helper;
 use wind\rest\controllers\base\ApiController;
 use Yii;
 use wind\rest\models\AuthItem;

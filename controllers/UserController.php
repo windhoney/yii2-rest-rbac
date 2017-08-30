@@ -24,26 +24,6 @@ use yii\mail\BaseMailer;
 class UserController extends ApiController
 {
     
-    private $_oldMailPath;
-    
-    /**
-     * @inheritdoc
-     */
-    public function beforeAction($action)
-    {
-        if (parent::beforeAction($action)) {
-            if (Yii::$app->has('mailer') && ($mailer = Yii::$app->getMailer()) instanceof BaseMailer) {
-                /* @var $mailer BaseMailer */
-                $this->_oldMailPath = $mailer->getViewPath();
-                $mailer->setViewPath('@mdm/admin/mail');
-            }
-            
-            return true;
-        }
-        
-        return false;
-    }
-    
     /**
      * 用户列表
      *

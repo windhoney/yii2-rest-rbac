@@ -7,7 +7,7 @@
 
 namespace wind\rest\controllers\base;
 
-use \helper\MyHelper;
+use wind\rest\helper;
 use yii\filters\AccessControl;
 use yii\rest\ActiveController;
 use yii\helpers\ArrayHelper;

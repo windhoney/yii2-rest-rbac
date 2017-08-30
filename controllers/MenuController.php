@@ -13,20 +13,6 @@ use wind\rest\components\Helper;
 class MenuController extends ApiController
 {
     
-//    /**
-//     * @inheritdoc
-//     */
-//    public function behaviors()
-//    {
-//        return [
-//            'verbs' => [
-//                'class' => VerbFilter::className(),
-//                'actions' => [
-//                ],
-//            ],
-//        ];
-//    }
-    
     /**
      * @var \wind\rest\models\Menu $menu_model $menu_model
      */

@@ -3,7 +3,7 @@
 namespace wind\rest\models;
 
 use common\helper\CommonHelper;
-use \helper\MyHelper;
+use wind\rest\helper;
 use work\modules;
 use wind\rest\components\Helper;
 use Yii;

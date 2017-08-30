@@ -1,6 +1,6 @@
 <?php
 
-namespace work\modules\rbac\components;
+namespace wind\rest\components;
 
 use Yii;
 use yii\db\Connection;
@@ -29,7 +29,7 @@ use yii\di\Instance;
  * or use [[\Yii::$container]]
  * 
  * ```
- * Yii::$container->set('work\modules\rbac\components\Configs',[
+ * Yii::$container->set('wind\rest\components\Configs',[
  *     'db' => 'customDb',
  *     'menuTable' => 'admin_menu',
  * ]);
@@ -40,12 +40,12 @@ use yii\di\Instance;
  */
 class Configs extends \yii\base\Object
 {
-    const CACHE_TAG = 'mdm.admin';
+    const CACHE_TAG = 'wind.rest';
 
     /**
      * @var Connection Database connection.
      */
-    public $db = 'lx_db';
+    public $db = 'db';
     /**
      * @var Cache Cache component.
      */
@@ -57,11 +57,11 @@ class Configs extends \yii\base\Object
     /**
      * @var string MenuOld table name.
      */
-    public $menuTable = '{{lx.menu}}';
+    public $menuTable = '{{menu}}';
     /**
      * @var string MenuOld table name.
      */
-    public $userTable = 'new7crm.user';
+    public $userTable = 'user';
     /**
      * @var integer Default status user signup. 10 mean active.
      */

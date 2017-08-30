@@ -1,6 +1,6 @@
 <?php
 
-namespace work\modules\rbac;
+namespace wind\rest;
 
 use Yii;
 use yii\helpers\Inflector;
@@ -43,7 +43,7 @@ class Modules extends \yii\base\Module
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'work\modules\rbac\controllers';
+    public $controllerNamespace = 'wind\rest\controllers';
     
     /**
      * @var array Nav bar items.

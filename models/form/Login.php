@@ -1,10 +1,10 @@
 <?php
 
-namespace work\modules\rbac\models\form;
+namespace wind\rest\models\form;
 
 use Yii;
 use yii\base\Model;
-use work\modules\rbac\models\User;
+use wind\rest\models\User;
 
 /**
  * Login form

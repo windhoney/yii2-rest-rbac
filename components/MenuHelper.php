@@ -1,8 +1,8 @@
 <?php
 
-namespace work\modules\rbac\components;
+namespace wind\rest\components;
 
-use work\modules\rbac\models\Menu;
+use wind\rest\models\Menu;
 use Yii;
 use yii\caching\TagDependency;
 
@@ -11,7 +11,7 @@ use yii\caching\TagDependency;
  * Usage
  * 
  * ```
- * use work\modules\rbac\components\MenuHelper;
+ * use wind\rest\components\MenuHelper;
  * use yii\bootstrap\Nav;
  *
  * echo Nav::widget([

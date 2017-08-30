@@ -1,6 +1,6 @@
 <?php
 
-namespace work\modules\rbac\components;
+namespace wind\rest\components;
 
 use yii\db\Expression;
 use yii\db\Query;
@@ -101,7 +101,7 @@ class DbManager extends \yii\rbac\DbManager
      */
     protected function populateItem($row)
     {
-        $class = $row['type'] == Item::TYPE_PERMISSION ? \work\modules\rbac\models\Permission::className() : \work\modules\rbac\models\Role::className();
+        $class = $row['type'] == Item::TYPE_PERMISSION ? \wind\rest\models\Permission::className() : \wind\rest\models\Role::className();
         
         if ( !isset($row['data']) || ($data = @unserialize($row['data'])) === false) {
             $data = null;
@@ -171,7 +171,7 @@ class DbManager extends \yii\rbac\DbManager
      */
     public function createPermission($name)
     {
-        $permission = new \work\modules\rbac\models\Permission();
+        $permission = new \wind\rest\models\Permission();
         $permission->name = $name;
         
         return $permission;

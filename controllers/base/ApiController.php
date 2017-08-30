@@ -5,9 +5,9 @@
  * @author zhanghongwei
  */
 
-namespace work\modules\rbac\controllers\base;
+namespace wind\rest\controllers\base;
 
-use work\helper\MyHelper;
+use \helper\MyHelper;
 use yii\filters\AccessControl;
 use yii\rest\ActiveController;
 use yii\helpers\ArrayHelper;
@@ -68,7 +68,7 @@ class ApiController extends ActiveController
     }
     
     /**
-     * 接受请求参数
+     * 接收请求参数
      */
     public function getRequestParam()
     {

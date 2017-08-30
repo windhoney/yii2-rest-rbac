@@ -1,12 +1,12 @@
 <?php
 
-namespace work\modules\rbac\controllers;
+namespace wind\rest\controllers;
 
-use work\modules\rbac\controllers\base\ApiController;
-use work\modules\rbac\models\AuthItem;
+use wind\rest\controllers\base\ApiController;
+use wind\rest\models\AuthItem;
 use Yii;
-use work\modules\rbac\models\Assignment;
-use work\modules\rbac\models\searchs\Assignment as AssignmentSearch;
+use wind\rest\models\Assignment;
+use wind\rest\models\searchs\Assignment as AssignmentSearch;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 

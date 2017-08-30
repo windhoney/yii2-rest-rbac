@@ -1,10 +1,10 @@
 <?php
 
-namespace work\modules\rbac\controllers;
+namespace wind\rest\controllers;
 
-use common\helper\ArrayHelper;
-use work\modules\rbac\controllers\base\ApiController;
-use work\modules\rbac\models\Route;
+use yii\helpers\ArrayHelper;
+use wind\rest\controllers\base\ApiController;
+use wind\rest\models\Route;
 use Yii;
 use yii\filters\VerbFilter;
 

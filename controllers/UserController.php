@@ -1,18 +1,18 @@
 <?php
 
-namespace work\modules\rbac\controllers;
+namespace wind\rest\controllers;
 
-use common\helper\ArrayHelper;
+use yii\helpers\ArrayHelper;
 use work\models\AdminUser;
-use work\modules\rbac\controllers\base\ApiController;
+use wind\rest\controllers\base\ApiController;
 use Yii;
-use work\modules\rbac\models\form\Login;
-use work\modules\rbac\models\form\PasswordResetRequest;
-use work\modules\rbac\models\form\ResetPassword;
-use work\modules\rbac\models\form\Signup;
-use work\modules\rbac\models\form\ChangePassword;
-use work\modules\rbac\models\User;
-use work\modules\rbac\models\searchs\User as UserSearch;
+use wind\rest\models\form\Login;
+use wind\rest\models\form\PasswordResetRequest;
+use wind\rest\models\form\ResetPassword;
+use wind\rest\models\form\Signup;
+use wind\rest\models\form\ChangePassword;
+use wind\rest\models\User;
+use wind\rest\models\searchs\User as UserSearch;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\NotFoundHttpException;
@@ -62,7 +62,7 @@ class UserController extends ApiController
      *
      * @param $id
      *
-     * @return \work\modules\rbac\models\User
+     * @return \wind\rest\models\User
      */
     public function actionView($id)
     {

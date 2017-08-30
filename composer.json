@@ -1,42 +1,41 @@
 {
-    "name": "windhoney/yii2-rest-rbac",
-    "description": "RBAC Auth manager for Yii2 RESTful",
-    "keywords": ["yii", "admin", "auth", "rbac","restful"],
-    "type": "yii2-extension",
-    "license": "BSD-3-Clause",
-    "support": {
-        "issues": "https://github.com/mdmsoft/yii2-admin/issues",
-        "source": "https://github.com/mdmsoft/yii2-admin"
-    },
-    "authors": [
-        {
-            "name": "new7",
-            "email": "524415250@qq.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "yiisoft/yii2": "~2.0.7"
-    },
-    "require-dev": {
-        "yiisoft/yii2-codeception": "~2.0"
-    },
-    "suggest": {
-        "yiisoft/yii2-bootstrap": "Used when using layout 'left-menu', 'right-menu' or 'top-menu'"
-    },
-    "autoload": {
-        "psr-4": {
-            "mdm\\admin\\": ""
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-1.0.master": "1.0.x-dev",
-            "dev-master": "2.x-dev"
-        },
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
-        }
+  "name": "windhoney/yii2-rest-rbac",
+  "description": "RBAC Auth manager for Yii2 RESTful",
+  "keywords": [
+    "yii",
+    "admin",
+    "auth",
+    "rbac",
+    "restful"
+  ],
+  "type": "yii2-extension",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/windhoney/yii2-rest-rbac/issues",
+    "source": "https://github.com/windhoney/yii2-rest-rbac"
+  },
+  "authors": [
+    {
+      "name": "new7",
+      "email": "524415250@qq.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "yiisoft/yii2": "~2.0.7"
+  },
+  "require-dev": {
+    "yiisoft/yii2-codeception": "~2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "wind\\rest\\": ""
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-1.0.master": "1.0.x-dev",
+      "dev-master": "2.x-dev"
+    }
+  }
 }

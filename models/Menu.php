@@ -1,13 +1,13 @@
 <?php
 
-namespace work\modules\rbac\models;
+namespace wind\rest\models;
 
 use common\helper\CommonHelper;
-use work\helper\MyHelper;
+use \helper\MyHelper;
 use work\modules;
-use work\modules\rbac\components\Helper;
+use wind\rest\components\Helper;
 use Yii;
-use work\modules\rbac\components\Configs;
+use wind\rest\components\Configs;
 use yii\db\Query;
 
 /**
@@ -86,7 +86,7 @@ class Menu extends \yii\db\ActiveRecord
     /**
      * 添加菜单
      *
-     * @return bool|\work\modules\rbac\models\Menu
+     * @return bool|\wind\rest\models\Menu
      */
     public function create()
     {
@@ -209,7 +209,7 @@ class Menu extends \yii\db\ActiveRecord
      *
      * @param $id
      *
-     * @return bool|\work\modules\rbac\models\Menu
+     * @return bool|\wind\rest\models\Menu
      */
     public function findModel($id)
     {
@@ -231,7 +231,7 @@ class Menu extends \yii\db\ActiveRecord
      *
      * @param $id
      *
-     * @return bool|\work\modules\rbac\models\Menu
+     * @return bool|\wind\rest\models\Menu
      */
     public function updateMenu($id)
     {

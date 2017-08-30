@@ -1,6 +1,6 @@
 <?php
 
-namespace work\modules\rbac\components;
+namespace wind\rest\components;
 
 use Yii;
 use yii\rbac\Rule;

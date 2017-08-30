@@ -1,14 +1,14 @@
 <?php
 
-namespace work\modules\rbac\controllers;
+namespace wind\rest\controllers;
 
-use common\helper\ArrayHelper;
-use work\modules\rbac\components\MenuHelper;
-use work\modules\rbac\controllers\base\ApiController;
-use work\modules\rbac\models\Menu;
+use yii\helpers\ArrayHelper;
+use wind\rest\components\MenuHelper;
+use wind\rest\controllers\base\ApiController;
+use wind\rest\models\Menu;
 use Yii;
 use yii\filters\VerbFilter;
-use work\modules\rbac\components\Helper;
+use wind\rest\components\Helper;
 
 class MenuController extends ApiController
 {
@@ -28,7 +28,7 @@ class MenuController extends ApiController
 //    }
     
     /**
-     * @var \work\modules\rbac\models\Menu $menu_model $menu_model
+     * @var \wind\rest\models\Menu $menu_model $menu_model
      */
     public $menu_model;
     

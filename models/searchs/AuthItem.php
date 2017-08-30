@@ -1,6 +1,6 @@
 <?php
 
-namespace work\modules\rbac\models\searchs;
+namespace wind\rest\models\searchs;
 
 use Yii;
 use yii\base\Model;

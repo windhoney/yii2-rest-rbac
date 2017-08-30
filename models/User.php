@@ -1,8 +1,8 @@
 <?php
 
-namespace work\modules\rbac\models;
+namespace wind\rest\models;
 
-use work\modules\rbac\components\Configs;
+use wind\rest\components\Configs;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;

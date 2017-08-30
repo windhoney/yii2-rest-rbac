@@ -1,6 +1,6 @@
 <?php
 
-namespace work\modules\rbac\models;
+namespace wind\rest\models;
 
 use yii\rbac\Rule;
 use Yii;

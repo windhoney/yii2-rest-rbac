@@ -1,13 +1,13 @@
 <?php
 
-namespace work\modules\rbac\components;
+namespace wind\rest\components;
 
-use common\helper\ArrayHelper;
-use work\helper\MyHelper;
-use work\modules\rbac\controllers\base\ApiController;
+use yii\helpers\ArrayHelper;
+use \helper\MyHelper;
+use wind\rest\controllers\base\ApiController;
 use Yii;
-use work\modules\rbac\models\AuthItem;
-use work\modules\rbac\models\searchs\AuthItem as AuthItemSearch;
+use wind\rest\models\AuthItem;
+use wind\rest\models\searchs\AuthItem as AuthItemSearch;
 use yii\base\NotSupportedException;
 use yii\filters\VerbFilter;
 
@@ -39,7 +39,7 @@ class ItemController extends ApiController
         ]);
     }
     
-    /** @type  \work\modules\rbac\models\AuthItem $auth_item_model */
+    /** @type  \wind\rest\models\AuthItem $auth_item_model */
     public $auth_item_model;
     
     public function init()
@@ -78,7 +78,7 @@ class ItemController extends ApiController
     /**
      * 权限 | 角色 添加
      *
-     * @return array|bool|\work\modules\rbac\models\AuthItem
+     * @return array|bool|\wind\rest\models\AuthItem
      */
     public function actionCreate()
     {

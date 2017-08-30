@@ -1,8 +1,8 @@
 <?php
 
-namespace work\modules\rbac\components;
+namespace wind\rest\components;
 
-use work\modules\rbac\models\Assignment;
+use wind\rest\models\Assignment;
 use Yii;
 use yii\web\User;
 use yii\helpers\ArrayHelper;

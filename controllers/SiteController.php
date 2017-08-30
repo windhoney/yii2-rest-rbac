@@ -1,5 +1,5 @@
 <?php
-namespace work\modules\rbac\controllers;
+namespace wind\rest\controllers;
 
 use rbac\models\Menu;
 use yii\web\Controller;

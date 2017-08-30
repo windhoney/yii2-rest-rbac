@@ -1,10 +1,10 @@
 <?php
 
-namespace work\modules\rbac\controllers;
+namespace wind\rest\controllers;
 
 use mdm\admin\models\BizRule;
-use work\modules\rbac\components\Helper;
-use work\modules\rbac\controllers\base\ApiController;
+use wind\rest\components\Helper;
+use wind\rest\controllers\base\ApiController;
 use Yii;
 use yii\filters\VerbFilter;
 

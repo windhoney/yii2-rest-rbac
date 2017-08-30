@@ -1,6 +1,6 @@
 <?php
 
-namespace work\modules\rbac\components;
+namespace wind\rest\components;
 
 use yii\web\ForbiddenHttpException;
 use yii\base\Module;
@@ -19,7 +19,7 @@ use yii\di\Instance;
  *
  * ```
  * 'as access' => [
- *     'class' => 'work\modules\rbac\components\AccessControl',
+ *     'class' => 'wind\rest\components\AccessControl',
  *     'allowActions' => ['site/login', 'site/error']
  * ]
  * ```

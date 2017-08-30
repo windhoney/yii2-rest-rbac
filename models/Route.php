@@ -1,13 +1,13 @@
 <?php
 
-namespace work\modules\rbac\models;
+namespace wind\rest\models;
 
-use common\helper\ArrayHelper;
+use yii\helpers\ArrayHelper;
 use Yii;
-use work\modules\rbac\components\Helper;
+use wind\rest\components\Helper;
 use yii\caching\TagDependency;
-use work\modules\rbac\components\RouteRule;
-use work\modules\rbac\components\Configs;
+use wind\rest\components\RouteRule;
+use wind\rest\components\Configs;
 use yii\helpers\VarDumper;
 use Exception;
 

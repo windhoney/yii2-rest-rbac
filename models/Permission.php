@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace work\modules\rbac\models;
+namespace wind\rest\models;
 
 /**
  * For more details and usage information on Permission, see the [guide article on security authorization](guide:security-authorization).

@@ -1,16 +1,16 @@
 <?php
 
-namespace work\modules\rbac\controllers;
+namespace wind\rest\controllers;
 
-use work\modules\rbac\controllers\base\ApiController;
-use work\modules\rbac\models\AuthItem;
+use wind\rest\controllers\base\ApiController;
+use wind\rest\models\AuthItem;
 use yii\filters\VerbFilter;
 
 class AuthItemController extends ApiController
 {
     
     /**
-     * @var \work\modules\rbac\models\AuthItem $auth_item_model $auth_item_model
+     * @var \wind\rest\models\AuthItem $auth_item_model $auth_item_model
      */
     public $auth_item_model;
     

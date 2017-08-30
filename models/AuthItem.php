@@ -1,14 +1,14 @@
 <?php
 
-namespace work\modules\rbac\models;
+namespace wind\rest\models;
 
-use common\helper\ArrayHelper;
-use work\helper\MyHelper;
+use yii\helpers\ArrayHelper;
+use \helper\MyHelper;
 use Yii;
 use yii\rbac\Item;
 use yii\helpers\Json;
 use yii\base\Model;
-use work\modules\rbac\components\Helper;
+use wind\rest\components\Helper;
 
 /**
  * This is the model class for table "tbl_auth_item".
@@ -387,7 +387,7 @@ class AuthItem extends Model
      *
      * @param $type
      *
-     * @return bool|\work\modules\rbac\models\AuthItem
+     * @return bool|\wind\rest\models\AuthItem
      */
     public function addPermission($type)
     {
@@ -407,7 +407,7 @@ class AuthItem extends Model
      *
      * @param $id
      *
-     * @return bool|\work\modules\rbac\models\AuthItem
+     * @return bool|\wind\rest\models\AuthItem
      */
     public function findModel($id, $type = 2)
     {

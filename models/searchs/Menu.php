@@ -1,14 +1,14 @@
 <?php
 
-namespace work\modules\rbac\models\searchs;
+namespace wind\rest\models\searchs;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use work\modules\rbac\models\Menu as MenuModel;
+use wind\rest\models\Menu as MenuModel;
 
 /**
- * MenuOld represents the model behind the search form about [[\work\modules\rbac\models\MenuOld]].
+ * MenuOld represents the model behind the search form about [[\wind\rest\models\MenuOld]].
  *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since  1.0

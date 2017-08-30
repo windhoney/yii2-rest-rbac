@@ -1,8 +1,8 @@
 <?php
 
-namespace work\modules\rbac\controllers;
+namespace wind\rest\controllers;
 
-use work\modules\rbac\components\ItemController;
+use wind\rest\components\ItemController;
 use yii\rbac\Item;
 
 /**

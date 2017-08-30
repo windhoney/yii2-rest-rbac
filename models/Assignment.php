@@ -1,12 +1,12 @@
 <?php
 
-namespace work\modules\rbac\models;
+namespace wind\rest\models;
 
-use common\helper\ArrayHelper;
+use yii\helpers\ArrayHelper;
 use Yii;
 use yii\base\Model;
 use yii\base\Object;
-use work\modules\rbac\components\Helper;
+use wind\rest\components\Helper;
 use yii\rbac\Item;
 use yii\data\ActiveDataProvider;
 
@@ -247,7 +247,7 @@ class Assignment extends Model
         $manager = Yii::$app->getAuthManager();
         $assign = $manager->getAssignmentsUsers($this->id);
         $user_id_arr = array_filter(array_column($assign, 'id'));
-        $user_model = new \work\modules\rbac\models\searchs\User();
+        $user_model = new \wind\rest\models\searchs\User();
         $all = $user_model->allUsers(['id', 'realname']);
         foreach ($all as $key => $val) {
             if (in_array($val['id'], $user_id_arr)) {

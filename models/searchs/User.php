@@ -1,13 +1,13 @@
 <?php
 
-namespace work\modules\rbac\models\searchs;
+namespace wind\rest\models\searchs;
 
 use Yii;
 use yii\base\Model;
-use work\modules\rbac\models\User as UserModel;
+use wind\rest\models\User as UserModel;
 
 /**
- * User represents the model behind the search form about `work\modules\rbac\models\User`.
+ * User represents the model behind the search form about `wind\rest\models\User`.
  */
 class User extends UserModel
 {

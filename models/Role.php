@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace work\modules\rbac\models;
+namespace wind\rest\models;
 
 
 /**

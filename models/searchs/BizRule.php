@@ -1,12 +1,12 @@
 <?php
 
-namespace work\modules\rbac\models\searchs;
+namespace wind\rest\models\searchs;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ArrayDataProvider;
-use work\modules\rbac\models\BizRule as MBizRule;
-use work\modules\rbac\components\RouteRule;
+use wind\rest\models\BizRule as MBizRule;
+use wind\rest\components\RouteRule;
 use yii\helpers\Json;
 use yii\rbac\Item;
 

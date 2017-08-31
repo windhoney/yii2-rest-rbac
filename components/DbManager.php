@@ -59,7 +59,7 @@ class DbManager extends \yii\rbac\DbManager
      * with a DB connection object.
      * Starting from version 2.0.2, this can also be a configuration array for creating the object.
      */
-//    public $db = 'lx_db';
+//    public $db = 'db';
     /**
      * Memory cache of assignments
      *

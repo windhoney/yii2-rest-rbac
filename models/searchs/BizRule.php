@@ -2,6 +2,7 @@
 
 namespace wind\rest\models\searchs;
 
+use wind\rest\components\Helper;
 use Yii;
 use yii\base\Model;
 use yii\data\ArrayDataProvider;

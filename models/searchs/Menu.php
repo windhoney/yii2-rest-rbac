@@ -4,7 +4,6 @@ namespace wind\rest\models\searchs;
 
 use Yii;
 use yii\base\Model;
-use yii\data\ActiveDataProvider;
 use wind\rest\models\Menu as MenuModel;
 
 /**

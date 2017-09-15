@@ -2,7 +2,8 @@
 
 namespace wind\rest\controllers;
 
-use mdm\admin\models\BizRule;
+use wind\rest\models\BizRule;
+use wind\rest\models\searchs\BizRule as BizRuleSearch;
 use wind\rest\components\Helper;
 use wind\rest\controllers\base\ApiController;
 use Yii;

@@ -2,10 +2,8 @@
 
 namespace wind\rest\models;
 
-use common\helper\CommonHelper;
-use wind\rest\helper;
-use work\modules;
 use wind\rest\components\Helper;
+use wind\rest\helper\RbacHelper;
 use Yii;
 use wind\rest\components\Configs;
 use yii\db\Query;
@@ -97,7 +95,7 @@ class Menu extends \yii\db\ActiveRecord
             
             return $model;
         } else {
-            MyHelper::recordLog($model->errors, 'create', 'Menu');
+            RbacHelper::recordLog($model->errors, 'create', 'Menu');
             
             return false;
         }
@@ -245,7 +243,7 @@ class Menu extends \yii\db\ActiveRecord
             
             return $model;
         } else {
-            MyHelper::recordLog($model->errors, 'update', 'Menu');
+            RbacHelper::recordLog($model->errors, 'update', 'Menu');
             
             return false;
         }

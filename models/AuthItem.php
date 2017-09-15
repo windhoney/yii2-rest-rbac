@@ -2,13 +2,13 @@
 
 namespace wind\rest\models;
 
+use wind\rest\components\Helper;
+use wind\rest\helper\RbacHelper;
 use yii\helpers\ArrayHelper;
-use wind\rest\helper;
 use Yii;
 use yii\rbac\Item;
 use yii\helpers\Json;
 use yii\base\Model;
-use wind\rest\components\Helper;
 
 /**
  * This is the model class for table "tbl_auth_item".
@@ -396,7 +396,7 @@ class AuthItem extends Model
         if ($model->load(Yii::$app->getRequest()->post(), '') && $model->save()) {
             return $type == 1 ? $model : true;
         } else {
-            MyHelper::recordLog($model->errors, 'create', 'addPermissionRole');
+            RbacHelper::recordLog($model->errors, 'create', 'addPermissionRole');
             
             return false;
         }
@@ -434,7 +434,7 @@ class AuthItem extends Model
         if ($model->load(Yii::$app->getRequest()->post(), '') && $model->save()) {
             return true;
         } else {
-            MyHelper::recordLog($model->errors, 'update', 'updatePermissionRole');
+            RbacHelper::recordLog($model->errors, 'update', 'updatePermissionRole');
             
             return false;
         }

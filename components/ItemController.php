@@ -2,8 +2,8 @@
 
 namespace wind\rest\components;
 
+use wind\rest\helper\RbacHelper;
 use yii\helpers\ArrayHelper;
-use wind\rest\helper;
 use wind\rest\controllers\base\ApiController;
 use Yii;
 use wind\rest\models\AuthItem;
@@ -86,7 +86,7 @@ class ItemController extends ApiController
         Helper::invalidate();
         if ($this->type == 1) {
             if ( !$res) {
-                MyHelper::error();
+                RbacHelper::error();
             }
             
             return ArrayHelper::toArray($res['_item']);
@@ -141,9 +141,8 @@ class ItemController extends ApiController
      */
     public function actionAssign($id)
     {
-        $res = $this->auth_item_model->assignItem($id, $this->type, 'add');
+        $this->auth_item_model->assignItem($id, $this->type, 'add');
 
-//        return $res; 待修改
         return true;
     }
     
@@ -156,9 +155,8 @@ class ItemController extends ApiController
      */
     public function actionRemove($id)
     {
-        $res = $this->auth_item_model->assignItem($id, $this->type, 'remove');
+        $this->auth_item_model->assignItem($id, $this->type, 'remove');
         
-        //        return $res; 待修改
         return true;
     }
     

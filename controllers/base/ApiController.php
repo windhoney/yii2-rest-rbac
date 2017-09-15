@@ -7,7 +7,7 @@
 
 namespace wind\rest\controllers\base;
 
-use wind\rest\helper;
+use wind\rest\helper\RbacHelper;
 use yii\filters\AccessControl;
 use yii\rest\ActiveController;
 use yii\helpers\ArrayHelper;
@@ -36,21 +36,9 @@ class ApiController extends ActiveController
             'authenticator' => [
                 'class' => CompositeAuth::className(),
                 'authMethods' => [
-                    ['class' => QueryParamAuth::className(), 'tokenParam' => 'access_token'],
+//                    ['class' => QueryParamAuth::className(), 'tokenParam' => 'access_token'],
                 ]
-            ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-                'denyCallback' => function () {
-                    throw new UnauthorizedHttpException('未授权', 401);
-                }
-            ],
+            ]
         ]);
     }
     
@@ -76,7 +64,7 @@ class ApiController extends ActiveController
             $data = \Yii::$app->request->getRawBody();
             $post = json_decode($data, true);
             if ( !$post && $data) {
-                MyHelper::error(400, '数据格式不正确');
+                RbacHelper::error(400, '数据格式不正确');
             } else {
                 $this->params = $post;
             }

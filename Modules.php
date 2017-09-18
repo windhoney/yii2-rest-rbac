@@ -105,16 +105,6 @@ class Modules extends \yii\base\Module
         if ($this->defaultRoute == 'default' && $userClass && is_subclass_of($userClass, 'yii\db\BaseActiveRecord')) {
             $this->defaultRoute = 'assignment';
         }
-        //user did not define the Navbar?
-//        if ($this->navbar === null && Yii::$app instanceof \yii\web\Application) {
-//            $this->navbar = [
-//                ['label' => Yii::t('rbac-admin', 'Help'), 'url' => ['default/index']],
-//                ['label' => Yii::t('rbac-admin', 'Application'), 'url' => Yii::$app->homeUrl]
-//            ];
-//        }
-//        if (class_exists('yii\jui\JuiAsset')) {
-//            Yii::$container->set('mdm\admin\AutocompleteAsset', 'yii\jui\JuiAsset');
-//        }
     }
     
     /**

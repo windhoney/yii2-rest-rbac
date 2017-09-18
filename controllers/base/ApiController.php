@@ -36,7 +36,7 @@ class ApiController extends ActiveController
             'authenticator' => [
                 'class' => CompositeAuth::className(),
                 'authMethods' => [
-//                    ['class' => QueryParamAuth::className(), 'tokenParam' => 'access_token'],
+                    ['class' => QueryParamAuth::className(), 'tokenParam' => 'access_token'],
                 ]
             ]
         ]);

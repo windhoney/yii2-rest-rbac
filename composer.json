@@ -24,9 +24,6 @@
     "yiisoft/yii2": "~2.0.7",
     "filsh/yii2-oauth2-server": "~2.0"
   },
-  "require-dev": {
-    "yiisoft/yii2-codeception": "~2.0"
-  },
   "autoload": {
     "psr-4": {
       "wind\\rest\\": ""

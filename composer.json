@@ -9,7 +9,7 @@
     "restful"
   ],
   "type": "yii2-extension",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "support": {
     "issues": "https://github.com/windhoney/yii2-rest-rbac/issues",
     "source": "https://github.com/windhoney/yii2-rest-rbac"

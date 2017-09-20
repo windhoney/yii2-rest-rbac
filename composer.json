@@ -20,7 +20,6 @@
       "email": "524415250@qq.com"
     }
   ],
-  "minimum-stability": "dev",
   "require": {
     "yiisoft/yii2": "~2.0.7",
     "filsh/yii2-oauth2-server": "~2.0"
@@ -31,12 +30,6 @@
   "autoload": {
     "psr-4": {
       "wind\\rest\\": ""
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-1.0.master": "1.0.x-dev",
-      "dev-master": "2.x-dev"
     }
   }
 }

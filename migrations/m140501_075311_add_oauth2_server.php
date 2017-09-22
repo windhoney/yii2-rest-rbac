@@ -1,8 +1,8 @@
 <?php
-
+use yii\db\Migration;
 use yii\db\Schema;
 
-class m140501_075311_add_oauth2_server extends \yii\db\Migration
+class m140501_075311_add_oauth2_server extends Migration
 {
 
     public function mysql($yes,$no='') {

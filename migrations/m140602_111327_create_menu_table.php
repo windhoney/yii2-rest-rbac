@@ -1,5 +1,6 @@
 <?php
 
+use yii\db\Migration;
 use wind\rest\components\Configs;
 
 /**
@@ -8,7 +9,7 @@ use wind\rest\components\Configs;
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
-class m140602_111327_create_menu_table extends \yii\db\Migration
+class m140602_111327_create_menu_table extends Migration
 {
 
     /**

@@ -37,6 +37,15 @@
         ]
     ],
 ```
+* **创建所需要的表**
+```
+//用户表user和菜单表menu
+yii migrate --migrationPath=@vendor/windhoney/yii2-rest-rbac/migrations
+//rbac相关权限表
+yii migrate --migrationPath=@yii/rbac/migrations/
+//oauth2相关表
+yii migrate --migrationPath=@vendor/filsh/yii2-oauth2-server/migrations
+```
 
 * **添加路由配置**
 

@@ -57,9 +57,9 @@ class Configs extends \yii\base\Object
     /**
      * @var string MenuOld table name.
      */
-    public $menuTable = '{{menu}}';
+    public $menuTable = 'menu';
     /**
-     * @var string MenuOld table name.
+     * @var string Menu table name.
      */
     public $userTable = 'user';
     /**

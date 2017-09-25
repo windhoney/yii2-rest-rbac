@@ -1,7 +1,7 @@
 # yii2-rest-rbac
 
 
-> 开发中.....
+> Yii2权限系统，rest版，根据[yii2-admin（https://github.com/mdmsoft/yii2-admin）](https://github.com/mdmsoft/yii2-admin)修改
 
 
 ### **使用**

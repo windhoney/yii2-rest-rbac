@@ -37,6 +37,19 @@
         ]
     ],
 ```
+* **配置权限**
+```php
+    'as access' => [
+        'class' => 'wind\rest\components\AccessControl',
+        'allowActions' => [
+            'site/*',//允许访问的节点，可自行添加
+            'rbac/menu/user-menu',//允许所有人访问admin节点及其子节点
+            'oauth2/*',//允许所有人访问admin节点及其子节点
+        ]
+    ],
+```
+
+
 * **创建所需要的表**
 ```
 //用户表user和菜单表menu

@@ -2,6 +2,11 @@
 
 > Yii2权限系统，rest版，根据[yii2-admin（https://github.com/mdmsoft/yii2-admin）](https://github.com/mdmsoft/yii2-admin)修改
 
+* **安装:**
+```php
+composer require windhoney/yii2-rest-rbac
+```
+
 ### **使用**
 
 * **配置oauth2和rbac**

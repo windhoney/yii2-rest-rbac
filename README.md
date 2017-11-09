@@ -39,6 +39,11 @@ composer require windhoney/yii2-rest-rbac
             ]
         ]
     ],
+    'components' => [
+        'authManager' => [
+            'class' => 'wind\rest\components\DbManager', //配置文件
+        ],
+    ]
 ```
 * **配置权限**
 ```php

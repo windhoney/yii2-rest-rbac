@@ -60,20 +60,25 @@ class Assignment extends Model
     public function assign($items)
     {
         $manager = Yii::$app->getAuthManager();
-        $success = 0;
         foreach ($items as $name) {
             try {
-                $item = $manager->getRole($name);
-                $item = $item ?: $manager->getPermission($name);
-                $manager->assign($item, $this->id);
-                $success++;
+                //先查分组 暂未解决重名问题
+                if ($manager->getGroups($name)) {
+                    $manager->assignGroup($manager->getGroups($name)[0]['group_id'], $this->id);
+                } else {
+                    $item = $manager->getRole($name);
+                    $item = $item ?: $manager->getPermission($name);
+                    $manager->assign($item, $this->id);
+                }
             } catch (\Exception $exc) {
                 Yii::error($exc->getMessage(), __METHOD__);
+                
+                return false;
             }
         }
         Helper::invalidate();
         
-        return $success;
+        return true;
     }
     
     /**
@@ -89,10 +94,15 @@ class Assignment extends Model
         $success = 0;
         foreach ($items as $name) {
             try {
-                $item = $manager->getRole($name);
-                $item = $item ?: $manager->getPermission($name);
-                $manager->revoke($item, $this->id);
-                $success++;
+                if ($manager->getGroups($name)) {
+                    $manager->revokeGroup($manager->getGroups($name)[0]['group_id'], $this->id);
+                    $success++;
+                } else {
+                    $item = $manager->getRole($name);
+                    $item = $item ?: $manager->getPermission($name);
+                    $manager->revoke($item, $this->id);
+                    $success++;
+                }
             } catch (\Exception $exc) {
                 Yii::error($exc->getMessage(), __METHOD__);
             }
@@ -111,16 +121,33 @@ class Assignment extends Model
     {
         $manager = Yii::$app->getAuthManager();
         $available = [];
+        //角色
         foreach ($manager->getRoles() as $name) {
             $available[$name->name]['type'] = 'role';
             $available[$name->name]['description'] = $name->description;
             $available[$name->name]['check'] = 0;
         }
+        //权限
         foreach ($manager->getPermissions() as $name) {
             $available[$name->name]['type'] = $name->name[0] == '/' ? 'route' : 'permission';
             $available[$name->name]['description'] = $name->description;
             $available[$name->name]['check'] = 0;
         }
+        //分组
+        $user_groups = array_column($manager->getGroupChild($this->id), 'group_id');
+        $groups = $manager->getGroups();
+        foreach ($groups as &$v) {
+            $v['name'] = $v['group_name'];
+            $v['check'] = 0;
+            $v['description'] = $v['group_id'];
+            if ($user_groups && in_array($v['group_id'], $user_groups)) {
+                $v['check'] = 1;
+            }
+            unset($v['group_name']);
+            unset($v['group_id']);
+        }
+        $group_list[""] = $groups;
+        
         foreach ($manager->getAssignments($this->id) as $key => $item) {
             $available[$key]['check'] = 1;
         }
@@ -143,7 +170,7 @@ class Assignment extends Model
         }
         $role_list = ArrayHelper::index($role_list, null, 'parent_name');
         $permission_list = ArrayHelper::index($permission_list, null, 'parent_name');
-        $result = ['角色' => $role_list, '权限' => $permission_list];
+        $result = ['角色' => $role_list, '权限' => $permission_list, '分组' => $group_list];
         
         return $result;
     }

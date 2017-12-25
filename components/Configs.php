@@ -55,11 +55,11 @@ class Configs extends \yii\base\Object
      */
     public $cacheDuration = 3600;
     /**
-     * @var string MenuOld table name.
+     * @var string Menu table name.
      */
     public $menuTable = 'menu';
     /**
-     * @var string Menu table name.
+     * @var string user table name.
      */
     public $userTable = 'user';
     /**

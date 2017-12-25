@@ -82,7 +82,8 @@ class AuthItem extends Model
                 }
             }
         }
-        sort($items);
+        $items = array_values($items);
+//        sort($items);
         
         return $items;
     }

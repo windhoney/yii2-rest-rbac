@@ -118,10 +118,10 @@ class AssignmentController extends ApiController
         $items = Yii::$app->getRequest()->post();
         $model = new Assignment($id);
         $success = $model->assign($items);
-        Yii::$app->getResponse()->format = 'json';
+//        Yii::$app->getResponse()->format = 'json';
 
 //        return array_merge($model->getItems(), ['success' => $success]);
-        return boolval($success);//$success>0?true:false;
+        return boolval($success);
     }
     
     /**

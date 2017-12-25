@@ -71,6 +71,9 @@ class ItemController extends ApiController
     public function actionView($id)
     {
         $model = $this->auth_item_model->findModel($id, $this->type);
+        if ( !$model) {
+            return false;
+        }
         
         return ArrayHelper::toArray($model->_item);
     }
@@ -183,12 +186,16 @@ class ItemController extends ApiController
      *
      * @param $id
      *
-     * @return array
+     * @return array|bool
      */
     public function actionAssignList($id)
     {
         $model = $this->auth_item_model->findModel($id, $this->type);
         Yii::$app->getResponse()->format = 'json';
+        
+        if ( !$model) {
+            return false;
+        }
         
         return $model->getItemsList();
     }

@@ -267,7 +267,7 @@ class Helper
         $shop_id = '';
         foreach ($role_obj as $role => $obj) {
             $role_name = Yii::$app->getAuthManager()->getRole($role);
-            $shop_id .= $role_name->description . ',';
+            $shop_id .= isset($role_name->description) ? $role_name->description . ',' : '';
         }
 
         $shop_id = rtrim($shop_id, ',');

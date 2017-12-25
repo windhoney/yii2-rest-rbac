@@ -92,6 +92,16 @@ $rules = [
             'POST delete' => 'delete',
             'POST update' => 'update',
         ]
+    ],
+    //分组
+    [
+        'class' => 'yii\rest\UrlRule',
+        'controller' => ['rbac/groups'],
+        'extraPatterns' => [
+            'POST assign' => 'assign',
+            'POST revoke' => 'revoke',
+            'GET assign-user' => 'assign-user',
+        ]
     ]
 ];
 

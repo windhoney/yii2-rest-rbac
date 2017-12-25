@@ -10,7 +10,7 @@ class SiteController extends Controller
 {
     
     /**
-     * test
+     * Displays homepage.
      *
      * @return string
      */

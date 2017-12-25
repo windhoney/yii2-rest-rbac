@@ -52,7 +52,14 @@ class DbManager extends \yii\rbac\DbManager
      * @var string the name of the table storing rules. Defaults to "auth_rule".
      */
     public $ruleTable = 'auth_rule';
-    
+    /**
+     * @var string the name of the table storing groups. Defaults to "auth_groups".
+     */
+    public static $groupTable = 'auth_groups';
+    /**
+     * @var string the name of the table storing groups. Defaults to "auth_groups_child".
+     */
+    public static $groupChildTable = 'auth_groups_child';
     /**
      * @var Connection|array|string the DB connection object or the application component ID of the DB connection.
      * After the DbManager object is created, if you want to change this property, you should only assign it
@@ -208,4 +215,92 @@ class DbManager extends \yii\rbac\DbManager
         return $result;
     }
     
+    /**
+     * 分组列表
+     *
+     * @return array
+     */
+    public function getGroups($group_name = null)
+    {
+        $query = (new Query)
+            ->select(['group_id', 'group_name'])
+            ->from([self::$groupTable])
+            ->andFilterWhere(['group_name' => $group_name])
+            ->andWhere(['group_status' => 0]);
+        $result = $query->all($this->db);
+        
+        return $result;
+    }
+    
+    /**
+     * 用户所在组
+     *
+     * @param $user_id
+     *
+     * @return array
+     */
+    public function getGroupChild($user_id)
+    {
+        $query = (new Query)
+            ->select(['group_id'])
+            ->from([self::$groupChildTable])
+            ->andWhere(['user_id' => $user_id]);
+        $result = $query->all($this->db);
+        
+        return $result;
+    }
+    
+    /**
+     * 添加分组下用户
+     *
+     * @param $data
+     *
+     * @return bool
+     */
+    public function assignGroup($group_id, $user_id)
+    {
+        $this->db->createCommand()
+            ->insert(self::$groupChildTable, [
+                'group_id' => $group_id,
+                'user_id' => $user_id
+            ])->execute();
+        
+        return true;
+    }
+    
+    /**
+     * 添加分组下用户
+     *
+     * @param $data
+     *
+     * @return bool
+     */
+    public function revokeGroup($group_id, $user_id)
+    {
+        $this->db->createCommand()
+            ->delete(self::$groupChildTable, [
+                'group_id' => $group_id,
+                'user_id' => $user_id
+            ])->execute();
+        
+        return true;
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    protected function getItems($type)
+    {
+        $query = (new Query)
+            ->from($this->itemTable)
+            ->orderBy(['updated_at'=>SORT_DESC])
+            ->where(['type' => $type]);
+        
+        $items = [];
+        foreach ($query->all($this->db) as $row) {
+            $items[$row['name']] = $this->populateItem($row);
+        }
+        
+        return $items;
+    }
 }

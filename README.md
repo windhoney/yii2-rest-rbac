@@ -107,7 +107,7 @@ $dir = __DIR__ . "/route";
 $main = wind\rest\helper\RbacHelper::addRoute($dir, $main);
 return $main;
 ```
-> * 并将此文件放到config/route/rbac_route.php
+>>  并将此文件放到config/route/rbac_route.php
 
 * **接口文档参考**
 

@@ -73,6 +73,31 @@ yii migrate --migrationPath=@yii/rbac/migrations/
 yii migrate --migrationPath=@vendor/filsh/yii2-oauth2-server/migrations
 ```
 
+###### 4. 新增分组表
+
+```mysql
+CREATE TABLE `auth_groups` (
+  `group_id` varchar(50) NOT NULL COMMENT '分组id',
+  `group_name` varchar(100) NOT NULL DEFAULT '' COMMENT '分组名称',
+  `group_status` varchar(50) NOT NULL DEFAULT '' COMMENT '状态（开启，关闭）',
+  PRIMARY KEY (`group_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='分组';
+```
+
+```mysql
+CREATE TABLE `auth_groups_child` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` varchar(50) NOT NULL COMMENT '分组id',
+  `user_id` varchar(64) NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `group_id_2` (`group_id`,`user_id`),
+  KEY `group_id` (`group_id`),
+  KEY `user_group_id` (`user_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=795 DEFAULT CHARSET=utf8 COMMENT='分组子集';
+```
+
+
+
 * **添加路由配置**
 
 > 将yii2-rest-rbac/example/rbac_route.php文件内容配置到项目的urlManager的rules规则下

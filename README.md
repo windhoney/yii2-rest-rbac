@@ -59,21 +59,21 @@ composer require windhoney/yii2-rest-rbac
 
 
 * **创建所需要的表**
-###### 1. 用户表user和菜单表menu
+> ###### 1. 用户表user和菜单表menu
 ```php
 yii migrate --migrationPath=@vendor/windhoney/yii2-rest-rbac/migrations
 ```
-###### 2. rbac相关权限表
+> ###### 2. rbac相关权限表
 ```php
 yii migrate --migrationPath=@yii/rbac/migrations/
 ```
-> `auth_item` 表添加一个字段 `parent_name` varchar(30) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '父级名称',
-###### 3. oauth2相关表
+>> `auth_item` 表添加一个字段 `parent_name` varchar(30) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '父级名称',
+> ###### 3. oauth2相关表
 ```php
 yii migrate --migrationPath=@vendor/filsh/yii2-oauth2-server/migrations
 ```
 
-###### 4. 新增分组表
+> ###### 4. 新增分组表
 
 ```mysql
 CREATE TABLE `auth_groups` (
@@ -100,16 +100,16 @@ CREATE TABLE `auth_groups_child` (
 
 * **添加路由配置**
 
-> 将yii2-rest-rbac/example/rbac_route.php文件内容配置到项目的urlManager的rules规则下
-也可在main.php文件中 添加
+> * 将yii2-rest-rbac/example/rbac_route.php文件内容配置到项目的urlManager的rules规则下
+> * 或者在main.php文件中 添加
 ```php
 $dir = __DIR__ . "/route";
 $main = wind\rest\helper\RbacHelper::addRoute($dir, $main);
 return $main;
 ```
-> 直接将此文件放到config/route/rbac_route.php
+> * 并将此文件放到config/route/rbac_route.php
 
 * **接口文档参考**
 
-> [文档](https://windhoney.gitbooks.io/yii2-rest-rbac/)
+*  [文档](https://windhoney.gitbooks.io/yii2-rest-rbac/)
 

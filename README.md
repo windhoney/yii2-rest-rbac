@@ -67,8 +67,10 @@ yii migrate --migrationPath=@vendor/windhoney/yii2-rest-rbac/migrations
 ```php
 yii migrate --migrationPath=@yii/rbac/migrations/
 ```
->> `auth_item` 表添加一个字段 `parent_name` varchar(30) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '父级名称',
-> ###### 3. oauth2相关表
+
+> **_**`auth_item` 表添加一个字段 `parent_name` varchar(30) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '父级名称'**_**,
+###### 3. oauth2相关表
+
 ```php
 yii migrate --migrationPath=@vendor/filsh/yii2-oauth2-server/migrations
 ```

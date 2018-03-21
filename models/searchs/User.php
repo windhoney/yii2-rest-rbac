@@ -55,16 +55,13 @@ class User extends UserModel
             "role",
             "status",
             "created_at",
-//            "updated_at",
-            "store_id",
-//            "dingId"
         ]);
         $query->andFilterWhere(['like', 'username', $this->username])
             ->andFilterWhere(['like', 'auth_key', $this->auth_key])
             ->andFilterWhere(['like', 'password_hash', $this->password_hash])
             ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
             ->andFilterWhere(['like', 'email', $this->email]);
-        $query->andWhere(['status' => 10]);
+        $query->andWhere(['status' => parent::STATUS_ACTIVE]);
         $query->orderBy(['id' => 'asc']);
         $result = $query->asArray()->all();
         foreach ($result as $key => $value) {
@@ -82,7 +79,7 @@ class User extends UserModel
     {
         $query = UserModel::find();
         $query->select($select);
-        $query->andWhere(['status' => 10]);
+        $query->andWhere(['status' => parent::STATUS_ACTIVE]);
         $result = $query->asArray()->all();
         
         return $result;

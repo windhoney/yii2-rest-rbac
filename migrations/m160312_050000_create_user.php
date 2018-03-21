@@ -21,6 +21,7 @@ class m160312_050000_create_user extends Migration
             $this->createTable($userTable, [
                 'id' => $this->primaryKey(),
                 'username' => $this->string(32)->notNull(),
+                'realname' => $this->string(100)->notNull(),
                 'auth_key' => $this->string(32)->notNull(),
                 'password_hash' => $this->string()->notNull(),
                 'password_reset_token' => $this->string(),

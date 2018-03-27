@@ -1,15 +1,15 @@
 <?php
 
-namespace work\modules\rbac\models;
+namespace wind\rest\models;
 
-use work\modules\rbac\components\DbManager;
+use wind\rest\components\DbManager;
 
 /**
  * Class AuthGroups
  *
  * @property string $user_id
  * @property string $group_id
- * @package work\modules\rbac\models
+ * @package  wind\rest\models
  */
 class AuthGroupsChild extends \yii\db\ActiveRecord
 {

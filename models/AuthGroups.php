@@ -1,9 +1,9 @@
 <?php
 
-namespace work\modules\rbac\models;
+namespace wind\rest\models;
 
-use work\modules\rbac\components\DbManager;
-use work\modules\rbac\components\Helper;
+use wind\rest\components\DbManager;
+use wind\rest\components\Helper;
 use Yii;
 
 /**
@@ -11,7 +11,7 @@ use Yii;
  *
  * @property string $group_name
  * @property string $group_id
- * @package work\modules\rbac\models
+ * @package  wind\rest\models
  */
 class AuthGroups extends \yii\db\ActiveRecord
 {
@@ -130,7 +130,7 @@ class AuthGroups extends \yii\db\ActiveRecord
         $assign = $group_child_model->assigned($this->id);
         $user_id_arr = array_filter(array_column($assign, 'id'));
         //all  所有
-        $user_model = new \work\modules\rbac\models\searchs\User();
+        $user_model = new \wind\rest\models\searchs\User();
         $all = $user_model->allUsers(['id', 'realname']);
         foreach ($all as $key => $val) {
             if (in_array($val['id'], $user_id_arr)) {

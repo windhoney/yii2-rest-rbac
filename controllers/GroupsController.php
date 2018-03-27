@@ -3,16 +3,16 @@
  * 用户分组
  */
 
-namespace work\modules\rbac\controllers;
+namespace wind\rest\controllers;
 
-use work\modules\rbac\controllers\base\ApiController;
-use work\modules\rbac\models\AuthGroups;
+use wind\rest\controllers\base\ApiController;
+use wind\rest\models\AuthGroups;
 
 class GroupsController extends ApiController
 {
     
     /**
-     * @var \work\modules\rbac\models\AuthGroups
+     * @var \wind\rest\models\AuthGroups
      */
     public $group_model;
     

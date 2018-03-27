@@ -96,8 +96,7 @@ class Route extends \yii\base\Object
     public function getRoutes()
     {
         $manager = Yii::$app->getAuthManager();
-        $routes = $this->getAppRoutes();
-//        print_r($routes);die;
+//        $routes = $this->getAppRoutes();
         $exists = [];
         foreach ($manager->getPermissions() as $name) {
             $name = ArrayHelper::toArray($name);
@@ -108,12 +107,12 @@ class Route extends \yii\base\Object
             $route['description'] = $name['description'];
             $route['parent_name'] = $name['parent_name'];
             $exists[] = $route;
-            unset($routes[$name['name']]);
+//            unset($routes[$name['name']]);
         }
         $exists = ArrayHelper::index($exists, null, 'parent_name');
         
         return [
-            'avaliable' => array_keys($routes),
+//            'avaliable' => array_keys($routes),
             'assigned' => $exists
         ];
     }

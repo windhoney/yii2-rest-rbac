@@ -3,7 +3,6 @@
 namespace wind\rest\controllers;
 
 use yii\helpers\ArrayHelper;
-use work\models\AdminUser;
 use wind\rest\controllers\base\ApiController;
 use Yii;
 use wind\rest\models\form\Login;

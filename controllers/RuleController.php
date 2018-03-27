@@ -36,37 +36,7 @@ class RuleController extends ApiController
     }
 
     /**
-     * Lists all AuthItemOld models.
-     *
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $searchModel = new BizRuleSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
-
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel,
-        ]);
-    }
-
-    /**
-     * Displays a single AuthItemOld model.
-     *
-     * @param  string $id
-     *
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        $model = $this->findModel($id);
-
-        return $this->render('view', ['model' => $model]);
-    }
-
-    /**
-     * Creates a new AuthItemOld model.
+     * Creates a new AuthItems model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      *
      * @return mixed
@@ -84,7 +54,7 @@ class RuleController extends ApiController
     }
 
     /**
-     * Updates an existing AuthItemOld model.
+     * Updates an existing AuthItem model.
      * If update is successful, the browser will be redirected to the 'view' page.
      *
      * @param  string $id
@@ -104,7 +74,7 @@ class RuleController extends ApiController
     }
 
     /**
-     * Deletes an existing AuthItemOld model.
+     * Deletes an existing AuthItem model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      *
      * @param  string $id
@@ -127,12 +97,12 @@ class RuleController extends ApiController
     }
 
     /**
-     * Finds the AuthItemOld model based on its primary key value.
+     * Finds the AuthItem model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      *
      * @param  string $id
      *
-     * @return AuthItemOld      the loaded model
+     * @return AuthItem      the loaded model
      * @throws HttpException if the model cannot be found
      */
     protected function findModel($id)

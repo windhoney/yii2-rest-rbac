@@ -8,7 +8,7 @@ use yii\data\ArrayDataProvider;
 use yii\rbac\Item;
 
 /**
- * AuthItemSearch represents the model behind the search form about AuthItemOld.
+ * AuthItemSearch represents the model behind the search form about AuthItem.
  *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since  1.0

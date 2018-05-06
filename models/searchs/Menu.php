@@ -7,7 +7,7 @@ use yii\base\Model;
 use wind\rest\models\Menu as MenuModel;
 
 /**
- * MenuOld represents the model behind the search form about [[\wind\rest\models\MenuOld]].
+ * Menu represents the model behind the search form about [[\wind\rest\models\Menu]].
  *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since  1.0

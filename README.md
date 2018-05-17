@@ -13,7 +13,7 @@ composer require windhoney/yii2-rest-rbac
 ```php
    'modules' => [
         'rbac' => [
-            'class' => 'wind\rest\modules'
+            'class' => 'wind\rest\Modules'
         ],
         'oauth2' => [
             'class' => 'filsh\yii2\oauth2server\Module',

@@ -22,6 +22,7 @@
   ],
   "require": {
     "yiisoft/yii2": "~2.0.7",
+    "php": ">=7.0.0",
     "filsh/yii2-oauth2-server": "~2.0"
   },
   "autoload": {

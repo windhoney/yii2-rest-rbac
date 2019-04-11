@@ -36,7 +36,15 @@ composer require windhoney/yii2-rest-rbac
                 'authorization_code' => [
                     'class' => 'OAuth2\GrantType\AuthorizationCode'
                 ],
-            ]
+            ],
+            'components' => [
+                'request' => function () {
+                    return \filsh\yii2\oauth2server\Request::createFromGlobals();
+                },
+                'response' => [
+                    'class' => \filsh\yii2\oauth2server\Response::class,
+                ],
+             ],
         ]
     ],
     'components' => [

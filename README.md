@@ -50,6 +50,9 @@ composer require windhoney/yii2-rest-rbac
     'components' => [
         'authManager' => [
             'class' => 'wind\rest\components\DbManager', //配置文件
+            'defaultRoles' => ['普通员工'] //选填，默认角色（默认角色下->公共权限（登陆，oauth2，首页等公共页面））
+            'groupTable' => 'auth_groups',//选填，分组表(已默认，可根据自己表名修改)
+            'groupChildTable' => 'auth_groups_child',//选填，分组子表(已默认，可根据自己表名修改)
         ],
     ]
 ```
@@ -59,8 +62,8 @@ composer require windhoney/yii2-rest-rbac
         'class' => 'wind\rest\components\AccessControl',
         'allowActions' => [
             'site/*',//允许访问的节点，可自行添加
-            'rbac/menu/user-menu',
-            'oauth2/*',
+            'rbac/menu/user-menu',//可将路由配置到“普通员工”（默认角色）下
+            'oauth2/*',//可将路由配置到“普通员工”（默认角色）下
         ]
     ],
 ```

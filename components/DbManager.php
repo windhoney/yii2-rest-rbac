@@ -55,11 +55,11 @@ class DbManager extends \yii\rbac\DbManager
     /**
      * @var string the name of the table storing groups. Defaults to "auth_groups".
      */
-    public static $groupTable = 'auth_groups';
+    public $groupTable = 'auth_groups';
     /**
      * @var string the name of the table storing groups. Defaults to "auth_groups_child".
      */
-    public static $groupChildTable = 'auth_groups_child';
+    public $groupChildTable = 'auth_groups_child';
     /**
      * @var Connection|array|string the DB connection object or the application component ID of the DB connection.
      * After the DbManager object is created, if you want to change this property, you should only assign it
@@ -224,7 +224,7 @@ class DbManager extends \yii\rbac\DbManager
     {
         $query = (new Query)
             ->select(['group_id', 'group_name'])
-            ->from([self::$groupTable])
+            ->from([$this->groupTable])
             ->andFilterWhere(['group_name' => $group_name])
             ->andWhere(['group_status' => 0]);
         $result = $query->all($this->db);
@@ -243,7 +243,7 @@ class DbManager extends \yii\rbac\DbManager
     {
         $query = (new Query)
             ->select(['group_id'])
-            ->from([self::$groupChildTable])
+            ->from([$this->groupChildTable])
             ->andWhere(['user_id' => $user_id]);
         $result = $query->all($this->db);
         
@@ -260,7 +260,7 @@ class DbManager extends \yii\rbac\DbManager
     public function assignGroup($group_id, $user_id)
     {
         $this->db->createCommand()
-            ->insert(self::$groupChildTable, [
+            ->insert($this->groupChildTable, [
                 'group_id' => $group_id,
                 'user_id' => $user_id
             ])->execute();
@@ -278,7 +278,7 @@ class DbManager extends \yii\rbac\DbManager
     public function revokeGroup($group_id, $user_id)
     {
         $this->db->createCommand()
-            ->delete(self::$groupChildTable, [
+            ->delete($this->groupChildTable, [
                 'group_id' => $group_id,
                 'user_id' => $user_id
             ])->execute();

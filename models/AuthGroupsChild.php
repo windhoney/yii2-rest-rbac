@@ -2,7 +2,7 @@
 
 namespace wind\rest\models;
 
-use wind\rest\components\DbManager;
+use Yii;
 
 /**
  * Class AuthGroups
@@ -19,7 +19,7 @@ class AuthGroupsChild extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return DbManager::$groupChildTable;
+        return Yii::$app->authManager->groupChildTable;
     }
     
     /**

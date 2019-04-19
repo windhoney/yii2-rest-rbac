@@ -40,10 +40,10 @@ class User extends UserModel
     public function search($params)
     {
         $query = UserModel::find();
-        $this->load($params);
+        $this->setAttributes($params);
+        $status = $this->status ?: parent::STATUS_ACTIVE;
         $query->andFilterWhere([
             'id' => $this->id,
-            'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
@@ -56,12 +56,9 @@ class User extends UserModel
             "status",
             "created_at",
         ]);
-        $query->andFilterWhere(['like', 'username', $this->username])
-            ->andFilterWhere(['like', 'auth_key', $this->auth_key])
-            ->andFilterWhere(['like', 'password_hash', $this->password_hash])
-            ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
-            ->andFilterWhere(['like', 'email', $this->email]);
-        $query->andWhere(['status' => parent::STATUS_ACTIVE]);
+        $query->andFilterWhere(['like', 'username', $this->username]);
+        $query->andFilterWhere(['like', 'email', $this->email]);
+        $query->andFilterWhere(['status' => $status]);
         $query->orderBy(['id' => 'asc']);
         $result = $query->asArray()->all();
         foreach ($result as $key => $value) {

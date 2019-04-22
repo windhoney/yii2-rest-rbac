@@ -54,6 +54,14 @@ composer require windhoney/yii2-rest-rbac
             'groupTable' => 'auth_groups',//选填，分组表(已默认，可根据自己表名修改)
             'groupChildTable' => 'auth_groups_child',//选填，分组子表(已默认，可根据自己表名修改)
         ],
+        'request' => [
+            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            //'cookieValidationKey' => 'xxxxxxxx',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+                'text/json' => 'yii\web\JsonParser',
+            ],
+        ],
     ]
 ```
 * **配置权限**

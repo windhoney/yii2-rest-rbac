@@ -94,13 +94,13 @@ class Modules extends \yii\base\Module
     public function init()
     {
         parent::init();
-        if (!isset(Yii::$app->i18n->translations['rbac-admin'])) {
-            Yii::$app->i18n->translations['rbac-admin'] = [
-                'class' => 'yii\i18n\PhpMessageSource',
-                'sourceLanguage' => 'en',
-                'basePath' => '@mdm/admin/messages'
-            ];
-        }
+//        if (!isset(Yii::$app->i18n->translations['rbac-admin'])) {
+//            Yii::$app->i18n->translations['rbac-admin'] = [
+//                'class' => 'yii\i18n\PhpMessageSource',
+//                'sourceLanguage' => 'en',
+//                'basePath' => '@mdm/admin/messages'
+//            ];
+//        }
         $userClass = ArrayHelper::getValue(Yii::$app->components, 'user.identityClass');
         if ($this->defaultRoute == 'default' && $userClass && is_subclass_of($userClass, 'yii\db\BaseActiveRecord')) {
             $this->defaultRoute = 'assignment';

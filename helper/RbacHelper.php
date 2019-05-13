@@ -1,14 +1,14 @@
 <?php
-/**
- * 公共方法
- *
- * @author zhanghongwei
- */
 
 namespace wind\rest\helper;
 
 use yii\log\FileTarget;
 
+/**
+ * 公共方法
+ * @author windhoney
+ * @package wind\rest\helper
+ */
 class RbacHelper
 {
     
@@ -82,7 +82,7 @@ class RbacHelper
      * @param string       $action
      * @param string       $file_name
      */
-    public static function recordLog($message, $action = 'application', $file_name = "lamp")
+    public static function recordLog($message, $action = 'application', $file_name = "rbac")
     {
         $message = is_array($message) ? json_encode($message, JSON_UNESCAPED_UNICODE) : $message;
         $time = microtime(true);

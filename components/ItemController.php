@@ -87,11 +87,10 @@ class ItemController extends ApiController
     {
         $res = $this->auth_item_model->addPermission($this->type);
         Helper::invalidate();
+        if ( !$res) {
+            RbacHelper::error();
+        }
         if ($this->type == 1) {
-            if ( !$res) {
-                RbacHelper::error();
-            }
-            
             return ArrayHelper::toArray($res['_item']);
         }
         

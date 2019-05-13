@@ -1,9 +1,4 @@
 <?php
-/**
- * 所有接口基类，授权验证，格式设定
- *
- * @author zhanghongwei
- */
 
 namespace wind\rest\controllers\base;
 
@@ -16,6 +11,12 @@ use yii\filters\auth\QueryParamAuth;
 use filsh\yii2\oauth2server\filters\auth\CompositeAuth;
 use yii\web\UnauthorizedHttpException;
 
+/**
+ * 所有接口基类，授权验证，格式设定
+ *
+ * @author windhoney
+ * @package wind\rest\controllers\base
+ */
 class ApiController extends ActiveController
 {
     

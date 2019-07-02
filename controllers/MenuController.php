@@ -44,7 +44,7 @@ class MenuController extends ApiController
             
             return $return;
         };
-        $result = MenuHelper::getAssignedMenu(Yii::$app->user->id, null, $callback, Yii::$app->request->get('client'));
+        $result = MenuHelper::getAssignedMenu(Yii::$app->user->id, null, $callback, false, Yii::$app->request->get('client'));
         
         return $result;
     }

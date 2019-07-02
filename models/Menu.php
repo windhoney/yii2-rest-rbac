@@ -63,7 +63,7 @@ class Menu extends \yii\db\ActiveRecord
                 'range' => static::find()->select(['name'])->column(),
                 'message' => 'Menu "{value}" not found.'
             ],
-            [['parent', 'route', 'data', 'order'], 'default'],
+            [['parent', 'route', 'data', 'order', 'remark'], 'default'],
             [
                 ['parent'],
                 'filterParent',
@@ -134,6 +134,7 @@ class Menu extends \yii\db\ActiveRecord
             'route' => 'route',//Yii::t('rbac-admin', 'Route'),
             'order' => 'order',//Yii::t('rbac-admin', 'Order'),
             'data' => 'data',//Yii::t('rbac-admin', 'Data'),
+            'remark' => 'remark',//Yii::t('rbac-admin', 'Data'),
         ];
     }
     
@@ -192,6 +193,7 @@ class Menu extends \yii\db\ActiveRecord
             'm.route',
             'parent_name' => 'p.name',
             'm.order',
+            'm.remark',
             'a.description as route_name'
         ])
             ->from(['m' => $tableName])

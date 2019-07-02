@@ -9,7 +9,7 @@ use yii\caching\TagDependency;
 /**
  * MenuHelper used to generate menu depend of user role.
  * Usage
- * 
+ *
  * ```
  * use wind\rest\components\MenuHelper;
  * use yii\bootstrap\Nav;
@@ -18,9 +18,9 @@ use yii\caching\TagDependency;
  *    'items' => MenuHelper::getAssignedMenu(Yii::$app->user->id)
  * ]);
  * ```
- * 
+ *
  * To reformat returned, provide callback to method.
- * 
+ *
  * ```
  * $callback = function ($menu) {
  *    $data = eval($menu['data']);
@@ -33,21 +33,22 @@ use yii\caching\TagDependency;
  *    ]
  * }
  *
- * $items = MenuHelper::getAssignedMenu(Yii::$app->user->id, null, $callback);
+ * $items = MenuHelper::getAssignedMenu(Yii::$app->user->id, null, $callback, $client);
  * ```
  *
- * @author Misbahul D Munir <misbahuldmunir@gmail.com>
- * @since 1.0
+ * @since  1.0
  */
 class MenuHelper
 {
+    
     /**
      * Use to get assigned menu of user.
-     * @param mixed $userId
-     * @param integer $root
+     *
+     * @param mixed    $userId
+     * @param integer  $root
      * @param \Closure $callback use to reformat output.
      * callback should have format like
-     * 
+     *
      * ```
      * function ($menu) {
      *    return [
@@ -60,18 +61,20 @@ class MenuHelper
      * }
      * ```
      * @param boolean  $refresh
+     * @param string   $client   多应用情况下此参数，可作为区分不同应用的菜单，对应menu表中的`remark`字段（多应用-可作为应用类别使用）
+     *
      * @return array
      */
-    public static function getAssignedMenu($userId, $root = null, $callback = null, $refresh = false)
+    public static function getAssignedMenu($userId, $root = null, $callback = null, $refresh = false, $client = null)
     {
         $config = Configs::instance();
-
+        
         /* @var $manager \yii\rbac\BaseManager */
         $manager = Yii::$app->getAuthManager();
-        $menus = Menu::find()->asArray()->indexBy('id')->all();
+        $menus = Menu::find()->asArray()->andFilterWhere(['remark' => $client])->indexBy('id')->all();
         $key = [__METHOD__, $userId, $manager->defaultRoles];
         $cache = $config->cache;
-
+        
         if ($refresh || $cache === null || ($assigned = $cache->get($key)) === false) {
             $routes = $filter1 = $filter2 = [];
             if ($userId !== null) {
@@ -108,7 +111,7 @@ class MenuHelper
                 }
             }
             $assigned = [];
-            $query = Menu::find()->select(['id'])->asArray();
+            $query = Menu::find()->select(['id'])->andFilterWhere(['remark' => $client])->asArray();
             if (count($filter2)) {
                 $assigned = $query->where(['route' => $filter2])->column();
             }
@@ -125,7 +128,7 @@ class MenuHelper
                 ]));
             }
         }
-
+        
         $key = [__METHOD__, $assigned, $root];
         if ($refresh || $callback !== null || $cache === null || (($result = $cache->get($key)) === false)) {
             $result = static::normalizeMenu($assigned, $menus, $callback, $root);
@@ -138,11 +141,13 @@ class MenuHelper
         
         return $result;
     }
-
+    
     /**
      * Ensure all item menu has parent.
-     * @param  array $assigned
-     * @param  array $menus
+     *
+     * @param array $assigned
+     * @param array $menus
+     *
      * @return array
      */
     private static function requiredParent($assigned, &$menus)
@@ -155,18 +160,20 @@ class MenuHelper
                 $assigned[$l++] = $parent_id;
             }
         }
-
+        
         return $assigned;
     }
-
+    
     /**
      * Parse route
-     * @param  string $route
+     *
+     * @param string $route
+     *
      * @return mixed
      */
     public static function parseRoute($route)
     {
-        if (!empty($route)) {
+        if ( !empty($route)) {
             $url = [];
             $r = explode('&', $route);
             $url[0] = $r[0];
@@ -175,19 +182,21 @@ class MenuHelper
                 $part = explode('=', $part);
                 $url[$part[0]] = isset($part[1]) ? $part[1] : '';
             }
-
+            
             return $url;
         }
-
+        
         return '#';
     }
-
+    
     /**
      * Normalize menu
-     * @param  array $assigned
-     * @param  array $menus
-     * @param  Closure $callback
-     * @param  integer $parent
+     *
+     * @param array   $assigned
+     * @param array   $menus
+     * @param Closure $callback
+     * @param integer $parent
+     *
      * @return array
      */
     private static function normalizeMenu(&$assigned, &$menus, $callback, $parent = null)
@@ -216,7 +225,7 @@ class MenuHelper
         if ($result != []) {
             array_multisort($order, $result);
         }
-
+        
         return $result;
     }
 }

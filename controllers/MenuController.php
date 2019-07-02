@@ -36,15 +36,15 @@ class MenuController extends ApiController
             $items = $menu['children'];
             $return = [
                 'label' => $menu['name'],
-                'url' => $menu['route']?substr($menu['route'],1):'',
+                'url' => $menu['route'] ? substr($menu['route'], 1) : '',
             ];
-            $return['icon'] = $data['icon']??'fa fa-circle-o';
-            $return['visible'] = $data['visible']??true;
+            $return['icon'] = $data['icon'] ?? 'fa fa-circle-o';
+            $return['visible'] = $data['visible'] ?? true;
             $items && $return['items'] = $items;
-
+            
             return $return;
         };
-        $result = MenuHelper::getAssignedMenu(Yii::$app->user->id,null,$callback);
+        $result = MenuHelper::getAssignedMenu(Yii::$app->user->id, null, $callback, Yii::$app->request->get('client'));
         
         return $result;
     }
@@ -64,7 +64,7 @@ class MenuController extends ApiController
     /**
      * 菜单详情
      *
-     * @param  integer $id
+     * @param integer $id
      *
      * @return mixed
      */
@@ -95,7 +95,7 @@ class MenuController extends ApiController
     /**
      * 更新
      *
-     * @param  integer $id
+     * @param integer $id
      *
      * @return mixed
      */

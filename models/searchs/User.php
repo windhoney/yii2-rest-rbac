@@ -52,7 +52,6 @@ class User extends UserModel
             "username",
             "realname",
             "email",
-            "role",
             "status",
             "created_at",
         ]);

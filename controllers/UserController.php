@@ -45,13 +45,19 @@ class UserController extends ApiController
      */
     public function actionView($id)
     {
-        $result = $this->findModel($id);
+        $select = [
+            "id",
+            "username",
+            "realname",
+            "email",
+            "status",
+            "created_at",
+            "updated_at"
+        ];
+        $result = $this->findModel($id, $select);
         $result->created_at = date('Y年m月d日', $result->created_at);
-        unset($result->password_hash);
-        unset($result->auth_key);
-        unset($result->password_reset_token);
-        unset($result->dingId);
-        
+        $result->updated_at = date('Y年m月d日', $result->updated_at);
+    
         return $result;
     }
     
@@ -224,9 +230,9 @@ class UserController extends ApiController
      * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($id, $select = ['*'])
     {
-        if (($model = User::findOne($id)) !== null) {
+        if (($model = User::find()->andWhere(['id' => $id])->select($select)->one()) !== null) {
             return $model;
         } else {
             return false;

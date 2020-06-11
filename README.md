@@ -17,10 +17,11 @@ composer require windhoney/yii2-rest-rbac
         ],
         'oauth2' => [
             'class' => 'filsh\yii2\oauth2server\Module',
+            //'class' => 'wind\oauth2\Module',相对filsh\yii2\oauth2server做了一点优化，增加了可修改oauth2表的db name
             'tokenParamName' => 'access_token',
             'tokenAccessLifetime' => 3600 * 24,
             'storageMap' => [
-                'user_credentials' => 'backend\models\User',
+                'user_credentials' => 'common\models\User',//可自定义
             ],
             'grantTypes' => [
                 'user_credentials' => [
@@ -37,14 +38,15 @@ composer require windhoney/yii2-rest-rbac
                     'class' => 'OAuth2\GrantType\AuthorizationCode'
                 ],
             ],
+            //选填，oauth2组件版本问题可能导致错误时可添加
             'components' => [
-                'request' => function () {
-                    return \filsh\yii2\oauth2server\Request::createFromGlobals();
-                },
-                'response' => [
-                    'class' => \filsh\yii2\oauth2server\Response::class,
-                ],
-             ],
+                    'request' => function () {
+                        return \filsh\yii2\oauth2server\Request::createFromGlobals();
+                    },
+                    'response' => [
+                        'class' => \filsh\yii2\oauth2server\Response::class,
+                    ],
+            ],
         ]
     ],
     'components' => [
@@ -65,6 +67,7 @@ composer require windhoney/yii2-rest-rbac
     ]
 ```
 * **配置权限**
+
 ```php
     'as access' => [
         'class' => 'wind\rest\components\AccessControl',
@@ -116,7 +119,13 @@ CREATE TABLE `auth_groups_child` (
   KEY `user_group_id` (`user_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=795 DEFAULT CHARSET=utf8 COMMENT='分组子集';
 ```
+> ###### 5. 权限控制相关路由可以参考 example/auth_item_sql 其中包含权限相关的insert语句
 
+```mysql
+INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `parent_name`, `data`, `created_at`, `updated_at`) VALUES ('/rbac/menu/index', '2', '接口-菜单接口', NULL, '权限控制', '', '1526377735', '1526377269');
+INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `parent_name`, `data`, `created_at`, `updated_at`) VALUES ('/rbac/role/index', '2', '接口-角色接口', NULL, '权限控制', '', '1526377735', '1526377269');
+......
+```
 
 
 * **添加路由配置**

@@ -71,5 +71,30 @@ class GroupsController extends ApiController
         return $result;
     }
     
+    /**
+     * 添加|修改
+     * 只能修改名称
+     *
+     * @return bool
+     */
+    public function actionCreate()
+    {
+        $group_id = \Yii::$app->request->post('group_id');
+        $group_name = \Yii::$app->request->post('group_name');
+        
+        return $this->group_model->create($group_id, $group_name);
+    }
     
+    /**
+     * 停用|启用
+     *
+     * @return bool
+     */
+    public function actionStatus()
+    {
+        $group_id = \Yii::$app->request->post('group_id');
+        $group_status = \Yii::$app->request->post('group_status');
+        
+        return $this->group_model->status($group_id, $group_status);
+    }
 }

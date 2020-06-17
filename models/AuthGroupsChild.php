@@ -107,4 +107,16 @@ class AuthGroupsChild extends \yii\db\ActiveRecord
         return $result;
     }
     
+    /**
+     * 所有已分组的用户
+     *
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public function assignedAll()
+    {
+        $model = clone $this;
+        $query = $model->find();
+        
+        return $query->asArray()->all();
+    }
 }

@@ -101,6 +101,7 @@ $rules = [
             'POST assign' => 'assign',
             'POST revoke' => 'revoke',
             'GET assign-user' => 'assign-user',
+            'POST status' => 'status',
         ]
     ]
 ];

@@ -141,5 +141,5 @@ return $main;
 
 * **接口文档参考**
 
-*  [文档](https://windhoney.gitbooks.io/yii2-rest-rbac/)
+*  [文档](https://windhoney.gitbook.io/yii2-rest-rbac/)
 

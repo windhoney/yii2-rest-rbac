@@ -274,4 +274,35 @@ class Helper
 
         return $shop_id;
     }
+    
+    /**
+     * 树形格式化数据
+     *
+     * @param array  $list  数据
+     * @param string $pk    主
+     * @param string $pid   父
+     * @param string $child 子集变量名
+     * @param int    $root  根节点
+     *
+     * @return array
+     */
+    public static function makeTree($list, $pk = 'id', $pid = 'pid', $child = 'child', $root = 0)
+    {
+        $tree = array();
+        $packData = array();
+        foreach ($list as $data) {
+            $packData[$data[$pk]] = $data;
+        }
+        foreach ($packData as $key => $val) {
+            if ($val[$pid] == $root) {
+                //代表根节点
+                $tree[] =& $packData[$key];
+            } else {
+                //找到其父类
+                $packData[$val[$pid]][$child][] =& $packData[$key];
+            }
+        }
+        
+        return $tree;
+    }
 }

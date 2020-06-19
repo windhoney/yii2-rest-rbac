@@ -57,7 +57,11 @@ class MenuController extends ApiController
     public function actionIndex()
     {
         $res = $this->menu_model->getMenuSource();
-        
+        $is_tree = Yii::$app->request->get('is_tree');
+        if ($is_tree) {
+            return Helper::makeTree($res, 'name', 'parent_name', 'child', null);
+        }
+    
         return $res;
     }
     

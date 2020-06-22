@@ -34,17 +34,16 @@ class MenuController extends ApiController
         $callback = function ($menu) {
             $data = json_decode($menu['data'], true);
             $items = $menu['children'];
-            $return = [
-                'label' => $menu['name'],
-                'url' => $menu['route'] ? substr($menu['route'], 1) : '',
-            ];
+            $return['label'] = $menu['name'];
+            $return['url'] = $menu['route'] ? substr($menu['route'], 1) : '';
             $return['icon'] = $data['icon'] ?? 'fa fa-circle-o';
             $return['visible'] = $data['visible'] ?? true;
             $items && $return['items'] = $items;
             
             return $return;
         };
-        $result = MenuHelper::getAssignedMenu(Yii::$app->user->id, null, $callback, false, Yii::$app->request->get('client'));
+        $refresh = Yii::$app->request->get('refresh', false);
+        $result = MenuHelper::getAssignedMenu(Yii::$app->user->id, null, $callback, $refresh, Yii::$app->request->get('client'));
         
         return $result;
     }

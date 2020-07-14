@@ -1,5 +1,5 @@
 # yii2-rest-rbac
-**感谢JetBrains对开源软件的支持**[![avatar](jetbrains.png)](https://www.jetbrains.com/?from=yii2-rest-rbac)
+**感谢JetBrains对开源软件的支持**[![JetBrains Logo](jetbrains.png)](https://www.jetbrains.com/?from=yii2-rest-rbac)
 
 > Yii2权限系统，rest版，根据[yii2-admin（https://github.com/mdmsoft/yii2-admin）](https://github.com/mdmsoft/yii2-admin)修改
 

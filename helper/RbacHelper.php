@@ -6,7 +6,8 @@ use yii\log\FileTarget;
 
 /**
  * 公共方法
- * @author windhoney
+ *
+ * @author  windhoney
  * @package wind\rest\helper
  */
 class RbacHelper
@@ -29,9 +30,8 @@ class RbacHelper
     /**
      * 参数验证方法
      *
-     * @param array  $arr 传过来的参数数组
-     * @param string $code
-     * @param string $msg param  verify
+     * @param array $arr
+     * @param int   $code
      */
     public static function paramVerify($arr, $code = 400)
     {
@@ -48,7 +48,7 @@ class RbacHelper
     /**
      * 参数验证
      *
-     * @param       $arr
+     * @param array $arr
      * @param array $need
      */
     public static function paramRequire($arr, $need = [])

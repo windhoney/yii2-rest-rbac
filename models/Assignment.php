@@ -5,7 +5,6 @@ namespace wind\rest\models;
 use yii\helpers\ArrayHelper;
 use Yii;
 use yii\base\Model;
-//use yii\base\Object;
 use wind\rest\components\Helper;
 use yii\rbac\Item;
 use yii\data\ActiveDataProvider;

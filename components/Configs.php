@@ -3,6 +3,7 @@
 namespace wind\rest\components;
 
 use Yii;
+use yii\base\BaseObject;
 use yii\db\Connection;
 use yii\caching\Cache;
 use yii\helpers\ArrayHelper;
@@ -11,10 +12,10 @@ use yii\di\Instance;
 /**
  * Configs
  * Used for configure some value. To set config you can use [[\yii\base\Application::$params]]
- * 
+ *
  * ```
  * return [
- *     
+ *
  *     'mdm.admin.configs' => [
  *         'db' => 'customDb',
  *         'menuTable' => '{{%admin_menu}}',
@@ -25,9 +26,9 @@ use yii\di\Instance;
  *     ]
  * ];
  * ```
- * 
+ *
  * or use [[\Yii::$container]]
- * 
+ *
  * ```
  * Yii::$container->set('wind\rest\components\Configs',[
  *     'db' => 'customDb',
@@ -36,12 +37,13 @@ use yii\di\Instance;
  * ```
  *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
- * @since 1.0
+ * @since  1.0
  */
-class Configs extends \yii\base\Object
+class Configs extends BaseObject
 {
+    
     const CACHE_TAG = 'wind.rest';
-
+    
     /**
      * @var Connection Database connection.
      */
@@ -75,7 +77,7 @@ class Configs extends \yii\base\Object
      */
     public $strict = true;
     /**
-     * @var array 
+     * @var array
      */
     public $options;
     /**
@@ -86,7 +88,7 @@ class Configs extends \yii\base\Object
         'db' => 'yii\db\Connection',
         'cache' => 'yii\caching\Cache',
     ];
-
+    
     /**
      * @inheritdoc
      */
@@ -101,9 +103,10 @@ class Configs extends \yii\base\Object
             }
         }
     }
-
+    
     /**
      * Create instance of self
+     *
      * @return static
      */
     public static function instance()
@@ -113,13 +116,13 @@ class Configs extends \yii\base\Object
             if (is_array($type) && !isset($type['class'])) {
                 $type['class'] = static::className();
             }
-
+            
             return self::$_instance = Yii::createObject($type);
         }
-
+        
         return self::$_instance;
     }
-
+    
     public static function __callStatic($name, $arguments)
     {
         $instance = static::instance();
@@ -133,7 +136,7 @@ class Configs extends \yii\base\Object
             }
         }
     }
-
+    
     /**
      * @return Connection
      */
@@ -141,7 +144,7 @@ class Configs extends \yii\base\Object
     {
         return static::instance()->db;
     }
-
+    
     /**
      * @return Cache
      */
@@ -149,7 +152,7 @@ class Configs extends \yii\base\Object
     {
         return static::instance()->cache;
     }
-
+    
     /**
      * @return integer
      */
@@ -157,7 +160,7 @@ class Configs extends \yii\base\Object
     {
         return static::instance()->cacheDuration;
     }
-
+    
     /**
      * @return string
      */
@@ -165,7 +168,7 @@ class Configs extends \yii\base\Object
     {
         return static::instance()->menuTable;
     }
-
+    
     /**
      * @return string
      */
@@ -173,7 +176,7 @@ class Configs extends \yii\base\Object
     {
         return static::instance()->userTable;
     }
-
+    
     /**
      * @return string
      */
@@ -181,7 +184,7 @@ class Configs extends \yii\base\Object
     {
         return static::instance()->defaultUserStatus;
     }
-
+    
     /**
      * @return boolean
      */
@@ -189,7 +192,7 @@ class Configs extends \yii\base\Object
     {
         return static::instance()->onlyRegisteredRoute;
     }
-
+    
     /**
      * @return boolean
      */

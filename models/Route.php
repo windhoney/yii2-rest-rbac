@@ -2,6 +2,7 @@
 
 namespace wind\rest\models;
 
+use yii\base\BaseObject;
 use yii\helpers\ArrayHelper;
 use Yii;
 use wind\rest\components\Helper;
@@ -17,7 +18,7 @@ use Exception;
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since  1.0
  */
-class Route extends \yii\base\Object
+class Route extends BaseObject
 {
     
     const CACHE_TAG = 'mdm.admin.route';

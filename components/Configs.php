@@ -59,11 +59,11 @@ class Configs extends BaseObject
     /**
      * @var string Menu table name.
      */
-    public $menuTable = 'menu';
+    public $menuTable = '{{%menu}}';
     /**
      * @var string user table name.
      */
-    public $userTable = 'user';
+    public $userTable = '{{%user}}';
     /**
      * @var integer Default status user signup. 10 mean active.
      */

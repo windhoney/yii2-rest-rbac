@@ -217,7 +217,7 @@ class Menu extends \yii\db\ActiveRecord
             $model->parent_name = $model->menuParent->name ?? null;
             $manager = Yii::$app->authManager;
             if ($model->route) {
-                $model->description = $manager->getPermission($model->route)->description;
+                $model->description = $manager->getPermission($model->route)->description ?? '';
             }
             
             return $model;

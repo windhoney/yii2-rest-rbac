@@ -12,7 +12,6 @@ use yii\data\ActiveDataProvider;
 /**
  * Description of Assignment
  *
- * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since  2.5
  */
 class Assignment extends Model

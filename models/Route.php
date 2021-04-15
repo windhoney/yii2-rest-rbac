@@ -15,7 +15,6 @@ use Exception;
 /**
  * Description of Route
  *
- * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since  1.0
  */
 class Route extends BaseObject
@@ -324,7 +323,7 @@ class Route extends BaseObject
     {
         $manager = Yii::$app->getAuthManager();
         $result = $manager->getRouteParent();
-        $result = array_column($result,'parent_name');
+        $result = array_column($result, 'parent_name');
         
         return $result;
     }

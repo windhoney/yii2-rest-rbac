@@ -72,14 +72,12 @@ class RuleController extends ApiController
 
         return $create_result;
     }
-
+    
     /**
      * Deletes an existing AuthItem model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      *
-     * @param  string $id
-     *
-     * @return mixed
+     * @return bool
      */
     public function actionDelete()
     {
@@ -95,15 +93,14 @@ class RuleController extends ApiController
 
         return false;
     }
-
+    
     /**
      * Finds the AuthItem model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      *
-     * @param  string $id
+     * @param $id
      *
-     * @return AuthItem      the loaded model
-     * @throws HttpException if the model cannot be found
+     * @return false|BizRule
      */
     protected function findModel($id)
     {
@@ -115,7 +112,10 @@ class RuleController extends ApiController
 //            throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-
+    
+    /**
+     * @return array
+     */
     public function actionGetRules()
     {
         $rules = Yii::$app->getAuthManager()->getRules();

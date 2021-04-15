@@ -127,7 +127,7 @@ class Menu extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'id',//ii::t('rbac-admin', 'ID'),
+            'id' => 'id',//Yii::t('rbac-admin', 'ID'),
             'name' => 'name',//Yii::t('rbac-admin', 'Name'),
             'parent' => 'parent',//Yii::t('rbac-admin', 'Parent'),
             'parent_name' => 'parent_name',//Yii::t('rbac-admin', 'Parent Name'),

@@ -63,7 +63,6 @@ class RuleController extends ApiController
      */
     public function actionUpdate()
     {
-        $name = Yii::$app->request->getBodyParam("name");
         $delete_result = $this->actionDelete();
         if ($delete_result == false) {
             return $delete_result;
@@ -108,8 +107,8 @@ class RuleController extends ApiController
         if ($item) {
             return new BizRule($item);
         } else {
+            //log error
             return false;
-//            throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
     

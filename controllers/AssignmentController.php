@@ -111,7 +111,7 @@ class AssignmentController extends ApiController
      *
      * @param string $id
      *
-     * @return array
+     * @return bool
      */
     public function actionAssign($id)
     {
@@ -121,7 +121,7 @@ class AssignmentController extends ApiController
 //        Yii::$app->getResponse()->format = 'json';
 
 //        return array_merge($model->getItems(), ['success' => $success]);
-        return boolval($success);
+        return (bool)$success;
     }
     
     /**
@@ -129,7 +129,7 @@ class AssignmentController extends ApiController
      *
      * @param string $id
      *
-     * @return array
+     * @return bool
      */
     public function actionRevoke($id)
     {
@@ -139,7 +139,7 @@ class AssignmentController extends ApiController
         Yii::$app->getResponse()->format = 'json';
 
 //        return array_merge($model->getItems(), ['success' => $success]);
-        return boolval($success);
+        return (bool)$success;
     }
     
     /**
@@ -156,9 +156,9 @@ class AssignmentController extends ApiController
         $class = $this->userClassName;
         if (($user = $class::findIdentity($id)) !== null) {
             return new Assignment($id, $user);
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+    
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
     
     /**
@@ -166,7 +166,7 @@ class AssignmentController extends ApiController
      *
      * @param array $id
      *
-     * @return array
+     * @return bool
      */
     public function actionAssignBatch($id)
     {
@@ -174,7 +174,7 @@ class AssignmentController extends ApiController
         $model = new Assignment($id);
         $success = $model->assignBatch($users);
         
-        return boolval($success);
+        return (bool)$success;
     }
     
     /**
@@ -187,9 +187,8 @@ class AssignmentController extends ApiController
     public function actionAssignUsers($id)
     {
         $model = new Assignment($id);
-        $result = $model->assignUser();
-        
-        return $result;
+    
+        return $model->assignUser();
     }
     
     /**
@@ -197,7 +196,7 @@ class AssignmentController extends ApiController
      *
      * @param array $id
      *
-     * @return array
+     * @return bool
      */
     public function actionRemoveUsers($id)
     {
@@ -205,6 +204,6 @@ class AssignmentController extends ApiController
         $model = new Assignment($id);
         $success = $model->assignRemoveUsers($users);
         
-        return boolval($success);
+        return (bool)$success;
     }
 }

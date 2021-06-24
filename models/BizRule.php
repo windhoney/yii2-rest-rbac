@@ -142,9 +142,9 @@ class BizRule extends \yii\base\Model
             }
 
             return true;
-        } else {
-            return false;
         }
+    
+        return false;
     }
 
     /**

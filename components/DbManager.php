@@ -196,9 +196,7 @@ class DbManager extends \yii\rbac\DbManager
             ->from([$this->itemTable])
             ->distinct()
             ->where('parent_name is not null');
-        $result = $query->all($this->db);
-        
-        return $result;
+        return $query->all($this->db);
     }
     
     
@@ -210,9 +208,7 @@ class DbManager extends \yii\rbac\DbManager
             ->leftJoin(Configs::instance()->userTable, $this->assignmentTable . '.user_id=id')
             ->andWhere(['status' => 10])
             ->andWhere(['item_name' => $item]);
-        $result = $query->all($this->db);
-        
-        return $result;
+        return $query->all($this->db);
     }
     
     /**
@@ -227,9 +223,8 @@ class DbManager extends \yii\rbac\DbManager
             ->from([$this->groupTable])
             ->andFilterWhere(['group_name' => $group_name])
             ->andWhere(['group_status' => 0]);
-        $result = $query->all($this->db);
-        
-        return $result;
+    
+        return $query->all($this->db);
     }
     
     /**
@@ -245,9 +240,8 @@ class DbManager extends \yii\rbac\DbManager
             ->select(['group_id'])
             ->from([$this->groupChildTable])
             ->andWhere(['user_id' => $user_id]);
-        $result = $query->all($this->db);
-        
-        return $result;
+    
+        return $query->all($this->db);
     }
     
     /**

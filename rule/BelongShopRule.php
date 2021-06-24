@@ -3,7 +3,7 @@
  * 规则--用户所属店铺
  */
 
-namespace  wind\rest\rule;
+namespace wind\rest\rule;
 
 use yii\rbac\Rule;
 use yii;

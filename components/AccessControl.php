@@ -25,9 +25,6 @@ use yii\di\Instance;
  * ```
  *
  * @property User $user
- *
- * @author Misbahul D Munir <misbahuldmunir@gmail.com>
- * @since 1.0
  */
 class AccessControl extends \yii\base\ActionFilter
 {

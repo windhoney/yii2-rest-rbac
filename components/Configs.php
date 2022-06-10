@@ -11,7 +11,8 @@ use yii\di\Instance;
 
 /**
  * Configs
- * Used for configure some value. To set config you can use [[\yii\base\Application::$params]]
+ * Used for configure some value.
+ * To set config you can use [[\yii\base\Application::$params]]
  *
  * ```
  * return [

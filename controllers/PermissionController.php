@@ -7,7 +7,6 @@ use yii\rbac\Item;
 
 /**
  * PermissionController implements the CRUD actions for AuthItem model.
- *
  */
 class PermissionController extends ItemController
 {

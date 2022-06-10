@@ -18,7 +18,6 @@ class RbacHelper
      *
      * @param int    $code
      * @param string $message
-     * @param array  $date
      *
      * @return mixed
      */

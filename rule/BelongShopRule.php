@@ -22,7 +22,7 @@ class BelongShopRule extends Rule
      */
     public function execute($user, $item, $params)
     {
-        //当前店铺id
+        //当前店铺ID
         $shop_id = Yii::$app->request->get('shop_id');
         if (empty($shop_id)) {
             return true;

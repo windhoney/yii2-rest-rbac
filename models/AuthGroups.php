@@ -42,7 +42,7 @@ class AuthGroups extends \yii\db\ActiveRecord
         return [
             [['group_id'], 'string', 'max' => 50],
             [['group_name'], 'string', 'max' => 100],
-            [['group_status'], 'string', 'max' => 50],
+            [['group_status'], 'string', 'max' => 50]
         ];
     }
     

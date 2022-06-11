@@ -49,7 +49,7 @@ class ItemController extends ApiController
     }
     
     /**
-     * 列表.
+     * 列表
      *
      * @return mixed
      */
@@ -62,7 +62,7 @@ class ItemController extends ApiController
     }
     
     /**
-     * 详情.
+     * 详情
      *
      * @param  string $id
      *
@@ -98,7 +98,7 @@ class ItemController extends ApiController
     }
     
     /**
-     * 修改 权限 |角色
+     * 修改 权限|角色
      *
      * @param $id
      *

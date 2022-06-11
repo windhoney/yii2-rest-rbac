@@ -39,7 +39,7 @@ composer require windhoney/yii2-rest-rbac
                     'class' => 'OAuth2\GrantType\AuthorizationCode'
                 ],
             ],
-            //选填，oauth2组件版本问题可能导致错误时可添加
+            //选填,oauth2组件版本问题可能导致错误时可添加
             'components' => [
                     'request' => function () {
                         return \filsh\yii2\oauth2server\Request::createFromGlobals();

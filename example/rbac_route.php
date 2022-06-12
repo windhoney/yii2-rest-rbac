@@ -1,8 +1,7 @@
 <?php
 /**
  * 路由配置
- * 将此文件内容配置到项目的urlManager的rules规则下
- * 也可在main.php文件中 添加
+ * 将此文件内容配置到项目的urlManager的rules规则下也可在main.php文件中 添加
  *
  * ```
  * $dir = __DIR__ . "/route";

@@ -15,7 +15,6 @@ use Exception;
 /**
  * Description of Route
  *
- * @since  1.0
  */
 class Route extends BaseObject
 {

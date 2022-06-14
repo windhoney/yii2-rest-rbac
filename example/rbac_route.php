@@ -8,6 +8,7 @@
  * $main = RbacHelper::addRoute($dir, $main);
  * return $main;
  * ```
+ *
  * 引入路由文件 直接将此文件放到config/route/rbac_route.php
  */
 $rules = [

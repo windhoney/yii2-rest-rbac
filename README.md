@@ -143,6 +143,6 @@ return $main;
 * **接口文档参考**
 
 *  [文档](https://windhoney.gitbook.io/yii2-rest-rbac/)
-*  有需要欢迎联系 ![wechat](WX20220819-104012@2x.png)
+*  有需要欢迎联系 <img src="WX20220819-104012@2x.png" width = 20% height = 20% />
 
 

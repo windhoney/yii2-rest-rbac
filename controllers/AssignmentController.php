@@ -12,7 +12,6 @@ use yii\filters\VerbFilter;
 
 /**
  * AssignmentController implements the CRUD actions for Assignment model.
- *
  */
 class AssignmentController extends ApiController
 {

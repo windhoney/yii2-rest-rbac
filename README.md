@@ -5,6 +5,7 @@
 
 * **安装:**
 ```php
+
 composer require windhoney/yii2-rest-rbac
 ```
 
